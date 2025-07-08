@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mi-proyecto-php
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: Dockerfile
+    buildCommand: ""
+    startCommand: ""
