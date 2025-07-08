@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="admin.css?v=1.0">
+</head>
+<body>
+ <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="registroMatinee.html">Registro</a></li>
+    <li><a href="admin.html">Admin</a></li>
+  </ul>
+</nav>
+  <!-- Login form -->
+  <div id="login-section" class="login-container">
+  <h2>Ingreso Administrador</h2>
+  <p id="error-msg"></p>
+  <form method="POST" action="admin.php" class="login-form">
+    <input type="text" name="username" placeholder="Usuario" required />
+    <input type="password" name="password" placeholder="Contraseña" required />
+    <button type="submit" class="btn-formal">Ingresar</button>
+  </form>
+</div>
+
+  <!-- Panel admin -->
+  <div id="panel-section" class="container" style="display: none;">
+    <nav class="navbar">
+      <div class="navbar-container">
+
+        <a href="admin.php?logout=1" class="logout-button">Cerrar sesión</a>
+      </div>
+    </nav>
+
+    <h2>Descargar Registros Completos</h2>
+    <a href="admin.php?descargar=1"><button>📥 Descargar CSV</button></a>
+  </div>
+
+  <script>
+    // Muestra mensaje de error si viene por URL
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("error") === "1") {
+      document.getElementById("error-msg").innerText = "Usuario o contraseña incorrectos.";
+    }
+
+    // Mostrar panel si está logueado usando sessionStorage (solo visual, no seguridad real)
+    // Esto es solo para UX. El control real está en PHP.
+    fetch("admin.php")
+      .then(r => {
+        if (r.redirected) {
+          // sigue en login
+        } else {
+          // estamos logueados
+          document.getElementById("login-section").style.display = "none";
+          document.getElementById("panel-section").style.display = "block";
+        }
+      });
+  </script>
+</body>
+</html>

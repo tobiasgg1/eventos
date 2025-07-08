@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="registroMatinee.css?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Evento</title>
+
+  <style>
+   
+  </style>
+</head>
+
+<body>
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="buscar.html">Buscar</a></li>
+    <li><a href="admin.html">Admin</a></li>
+  </ul>
+</nav>
+
+
+  <div class="form-container">
+    <h2>Registro</h2>
+
+    <form action="guardar.php" method="POST">
+      <label class="cabin" for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label class="cabin" for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required>
+
+      <label class="cabin" for="numero_entrada">Número de entrada:</label>
+      <input type="number" id="numero_entrada" name="numero_entrada" required>
+
+      <label class="cabin" for="forma_pago">Forma de pago:</label>
+      <select id="forma_pago" name="forma_pago" required>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Tarjeta">Tarjeta</option>
+      </select>
+
+      <label for="dni">DNI:</label>
+      <input type="text" id="dni" name="dni" required>
+
+      <label for="colegio">Colegio:</label>
+      <input type="text" id="colegio" name="colegio" required>
+
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+<BR></BR>
+  <footer id="footer-index" class="cabin">
+    <p>&copy; Villa Mitre 2025. Todos los derechos reservados.</p>
+    <p>Esta página maneja datos sensibles</p>
+  </footer>
+</body>
+
+</html>

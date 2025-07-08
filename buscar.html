@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="buscar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Participante</title>
+</head>
+<body class="cabin">
+ <nav class="navbar">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="registroMatinee.html">Registro</a></li>
+    <li><a href="admin.html">Admin</a></li>
+  </ul>
+</nav>
+
+
+    <div class="form-container">
+          <h2>Elija la forma de buscar:</h2>
+        <form action="buscar.php" method="POST">
+            <select   id="criterio" name="criterio" onchange="actualizarCampo()" required>
+                <option value="Nombre">Nombre</option>
+                <option value="Apellido">Apellido</option>
+                <option value="numero_entrada">Número de entrada</option>
+                <option value="Dni">DNI</option>
+            </select>
+
+            <label class="cabin" for="busqueda" id="labelSearch">Ingrese Nombre:</label>
+            <input type="text" id="busqueda" name="busqueda" placeholder="Ej: Juan Pérez o 12345" required>
+
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
+    <script>
+        function actualizarCampo() {
+            const select = document.getElementById("forma_pago");
+            const label = document.getElementById("labelSearch");
+
+            // Cambia el texto del label según lo seleccionado
+            switch (select.value) {
+                case "Nombre":
+                    label.textContent = "Ingrese Nombre:";
+                    break;
+                case "Apellido":
+                    label.textContent = "Ingrese Apellido:";
+                    break;
+                case "numero_entrada":
+                    label.textContent = "Ingrese Número de Entrada:";
+                    break;
+                case "Dni":
+                    label.textContent = "Ingrese DNI:";
+                    break;
+            }
+        }
+
+        // Llamar al cargar la página para que el label sea correcto
+        window.onload = actualizarCampo;
+    </script>
+        <footer id="footer-index" class="cabin">
+      <p>&copy; Villa Mitre 2025. Todos los derechos reservados.</p>
+      <p>Esta página maneja datos sensibles</p>
+    </footer>
+</body>
+</html>
