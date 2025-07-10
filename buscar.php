@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['busqueda'], $_POST['cr
     $busqueda = $_POST['busqueda'];
     $campo = $_POST['criterio'];
 
-    $conn = new mysqli("localhost", "root", "", "evento");
+    $conn = new mysqli("db-name.onrender.com", "render_user", "", "evento");
 
     if ($conn->connect_error) {
         die("Conexión fallida: " . $conn->connect_error);

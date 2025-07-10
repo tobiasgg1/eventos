@@ -1,6 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "root";
+$servername = "db-name.onrender.com"; // el host de tu base
+$username = "render_user";
 $password = "";
 $dbname = "evento";
 

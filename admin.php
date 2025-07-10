@@ -42,7 +42,7 @@ if (isset($_GET["descargar"]) && isset($_SESSION['logged_in']) && $_SESSION['log
 
 // Función para obtener datos
 function obtener_registros_db() {
-    $conn = new mysqli("localhost", "root", "", "evento");
+    $conn = new mysqli("db-name.onrender.com", "render_user", "", "evento");
     if ($conn->connect_error) {
         die("Conexión fallida: " . $conn->connect_error);
     }
